@@ -48,10 +48,12 @@ public class StudentController {
 
 
     // Spring boot REST API with Request Param
-    // http://localhost:8080/students/query?id=1
+    // http://localhost:8080/students/query?id=1&firstName=Milton&lastName=Munoz
     @GetMapping("students/query")
-    public Student studentRequestVariable(@RequestParam int id){
-        return new Student(id, "milton", "munoz");
+    public Student studentRequestVariable(@RequestParam int id,
+                                          @RequestParam String firstName,
+                                          @RequestParam String lastName){
+        return new Student(id, firstName, lastName);
     }
 
 }
